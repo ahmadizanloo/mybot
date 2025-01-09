@@ -1,4 +1,3 @@
 import streamlit as st
-
-st.title ("Hello world!")
-st.image("pic.png")
+st.image("pic.png", width=300, )
+st.markdown ("**Hallo, ich bin Ahmad, euer Assistent in Sachen Zahnversicherung**")
