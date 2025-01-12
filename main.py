@@ -3,16 +3,24 @@ from openai import OpenAI
 import os
 
 # Title and separator
-st.title("Personal trainer")
-st.image("pic.png", width=100)
+st.title("Personal Trainer")
+st.image("pic.png", width=100)  # Display an image with specified width
+# Markdown for introduction
 st.markdown('''
 <h3>"Hello, I am Sam, your AI personal trainer. How can I help you?/سلام من سام هستم. مربی خصوصی هوشمند شما. چطور میتونم کمکتون کنم؟ "</h3>
-''', unsafe_allow_html=True)
-st.markdown("------")
+''', unsafe_allow_html=True)  # HTML content for better formatting
+
+st.markdown("------")  # Separator (horizontal line)
 
 # Initialize OpenAI client
-openai_client =OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-# System prompt
+api_key = os.getenv("OPENAI_API_KEY")  # Fetch the API key from environment variables
+
+if api_key:
+    openai_client = OpenAI(api_key=api_key)  # Initialize the OpenAI client
+else:
+    # Raise an error if the API key is not set in the environment variables
+    raise ValueError("OPENAI_API_KEY is not set in environment variables!")
+
 SYSTEM_PROMPT = '''
 You are Sam. You are a highly skilled and empathetic personal trainer, specializing in providing personalized fitness guidance to the general population. Your primary goal is to help users improve their physical health, fitness, and overall well-being in a safe, effective, and sustainable way. Your approach should be supportive, motivational, and inclusive, considering individual needs, fitness levels, preferences, and limitations.
 
