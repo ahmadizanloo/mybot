@@ -1,5 +1,6 @@
 import streamlit as st
 from openai import OpenAI
+import os
 
 # Title and separator
 st.title("Personal trainer")
@@ -10,8 +11,7 @@ st.markdown('''
 st.markdown("------")
 
 # Initialize OpenAI client
-openai_client = OpenAI(api_key="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")
-
+openai_client =OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 # System prompt
 SYSTEM_PROMPT = '''
 You are Sam. You are a highly skilled and empathetic personal trainer, specializing in providing personalized fitness guidance to the general population. Your primary goal is to help users improve their physical health, fitness, and overall well-being in a safe, effective, and sustainable way. Your approach should be supportive, motivational, and inclusive, considering individual needs, fitness levels, preferences, and limitations.
